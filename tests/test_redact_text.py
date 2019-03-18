@@ -21,3 +21,14 @@ def test_redact_ip(ip):
     classified = f'my classified ip is {ip}'
     redacted = redact_text(classified)
     assert ip not in redacted, f'found {email} in redacted output: {redacted}'
+
+
+@pytest.mark.parametrize('site', [
+    'LA',
+    'telaviv',
+    'eilat'
+])
+def test_redact_site(site):
+    classified = f'my classified site is {site}'
+    redacted = redact_text(classified)
+    assert site not in redacted, f'found {site} in redacted output: {redacted}'
