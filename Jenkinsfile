@@ -3,10 +3,7 @@ pipeline {
   stages {
     stage('run pytest') {
       steps {
-        script {
-          pytest
-        }
-
+        powershell(script: 'pytest', returnStdout: true, returnStatus: true)
       }
     }
   }
