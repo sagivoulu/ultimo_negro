@@ -1,0 +1,6 @@
+*-REDACTED*
+.idea
+*.pyc
+__pycache__
+unrar_tools
+.gitlab-ci.yml
