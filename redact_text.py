@@ -7,6 +7,7 @@ default_mapping = {
 }
 
 
+
 def redact_text(classified, mapping=None):
     """
     Redacts the given text, using a [{regular expression: replacement}, ...] mapping.
