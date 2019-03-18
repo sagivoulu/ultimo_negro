@@ -4,3 +4,4 @@
 __pycache__
 unrar_tools
 .gitlab-ci.yml
+*.pytest_cach
