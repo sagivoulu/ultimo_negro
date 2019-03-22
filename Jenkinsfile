@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        bat 'pip3 install -r requirements.txt',
         bat 'pytest --html=report.html'
       }
     }
