@@ -9,7 +9,7 @@ pipeline {
   }
   post {
     always {
-      archiveArtifacts artifacts: '*.css,*.html', fingerprint: true
+      archiveArtifacts artifacts: 'assets/*.css,*.html', fingerprint: true
     }
   }
 }
