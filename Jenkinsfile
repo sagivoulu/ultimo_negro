@@ -1,10 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('run pytest') {
+    stage('Test') {
       steps {
-        bat 'pytest'
+        bat 'pip3 install -r requirements.txt',
+        bat 'pytest --html=report.html'
       }
+    }
+  }
+  post {
+    always {
+      archiveArtifacts artifacts: 'report.html', fingerprint: true
     }
   }
 }

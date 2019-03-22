@@ -1,1 +1,4 @@
 rarfile
+
+pytest
+pytest-html
