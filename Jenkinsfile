@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('UnitTests') {
+    stage('Tests') {
       steps {
-        bat 'pytest --html=unit_tests.html'
+        bat 'pytest --html=tests.html'
       }
       post {
         always {

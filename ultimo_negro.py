@@ -157,8 +157,9 @@ def main(args):
         rarfile.UNRAR_TOOL = args.unrar_tool
 
     # Copy classified file/dir for redaction
-    file_path_without_extention, extension = split_path(args.classified_path)
-    redacted_path = f'{file_path_without_extention}-REDACTED{extension}'
+    # file_path_without_extention, extension = split_path(args.classified_path)
+    # redacted_path = f'{file_path_without_extention}-REDACTED{extension}'
+    redacted_path = f'{args.classified_path}-REDACTED'
     if isfile(args.classified_path):
         if isfile(redacted_path):
             os.remove(redacted_path)

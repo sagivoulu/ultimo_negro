@@ -3,9 +3,9 @@ import re
 
 
 default_mapping = {
-    r'(.*?)@[^.\s]+(?:\.[^.\s]+)*': r'DOMAIN_USER',
+    r'([a-z0-9_-]*?)@[^.\s]+(?:\.[^.\s]+)*': r'DOMAIN_USER',
     r'(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)': 'REDACTED_IP',
-    r'(la|telaviv|eilat)': 'REDACTED_SITE'
+    r'(telaviv|eilat|la|galil)': 'REDACTED_SITE'
 }
 
 
