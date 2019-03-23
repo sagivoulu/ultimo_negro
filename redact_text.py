@@ -26,6 +26,6 @@ def redact_text(classified, mapping=None):
         mapping = default_mapping
     redacted = classified
     for pattern, substitute in mapping.items():
-        redacted, count = re.subn(pattern, substitute, redacted)
+        redacted, count = re.subn(pattern, substitute, redacted, flags=re.IGNORECASE)
         logging.debug(f'Replaced {pattern} to {substitute} {count} times')
     return redacted
