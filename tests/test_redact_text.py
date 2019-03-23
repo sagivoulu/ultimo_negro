@@ -7,7 +7,7 @@ import pytest
     'sagiv.oulu@yahoo.co.il',
 ])
 def test_redact_email(email):
-    classified = f'my classified email is {email}'
+    classified = f'{email}'
     redacted = redact_text(classified)
     assert email not in redacted, f'found {email} in redacted output: {redacted}'
 
@@ -18,7 +18,7 @@ def test_redact_email(email):
     '221.44.44.44'
 ])
 def test_redact_ip(ip):
-    classified = f'my classified ip is {ip}'
+    classified = f'{ip}'
     redacted = redact_text(classified)
     assert ip not in redacted, f'found {email} in redacted output: {redacted}'
 
@@ -29,6 +29,6 @@ def test_redact_ip(ip):
     'eilat'
 ])
 def test_redact_site(site):
-    classified = f'my classified site is {site}'
+    classified = f'{site}'
     redacted = redact_text(classified)
     assert site not in redacted, f'found {site} in redacted output: {redacted}'
