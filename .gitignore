@@ -7,3 +7,7 @@ unrar_tools
 *.pytest_cach
 *.html
 assets
+build
+dist
+*.spec
+*.exe
