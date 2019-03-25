@@ -1,12 +1,11 @@
 pipeline {
-  agent none
+  agent {
+    docker {
+      image 'python:3.7.0-alpine3.7'
+    }
+  }
   stages {
     stage('HelloWorld') {
-      agent {
-        docker {
-          image 'qnib/pytest'
-        }
-      }
       steps {
         sh 'echo hello'
       }
