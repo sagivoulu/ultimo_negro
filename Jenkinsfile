@@ -8,7 +8,7 @@ pipeline {
         }
       }
       steps {
-        sh 'pytest ./tests/unit_tests--html=unit_tests.html'
+        bat 'pytest ./tests/unit_tests--html=unit_tests.html'
       }
       post {
         always {
