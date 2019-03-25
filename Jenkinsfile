@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('HelloWorld') {
       steps {
-        sh 'echo hello'
+        sh 'echo helloa'
       }
     }
     stage('UnitTests') {
