@@ -4,11 +4,16 @@ pipeline {
     stage('UnitTests') {
       agent {
         docker {
-          image 'python:3.7'
+          image 'python:3.7-alpine'
         }
       }
       steps {
         sh 'pytest ./tests/unit_tests--html=unit_tests.html'
+      }
+      post {
+        always {
+          archiveArtifacts artifacts: 'assets/*.css,*.html', fingerprint: true
+        }
       }
     }
     stage('Build') {
