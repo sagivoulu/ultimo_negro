@@ -1,6 +1,16 @@
 pipeline {
   agent none
   stages {
+    stage('HelloWorld') {
+      agent {
+        docker {
+          image 'qnib/pytest'
+        }
+      }
+      steps {
+        sh 'echo hello'
+      }
+    }
     stage('UnitTests') {
       agent {
         docker {
