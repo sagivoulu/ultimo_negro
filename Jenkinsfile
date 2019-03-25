@@ -4,7 +4,7 @@ pipeline {
     stage('UnitTests') {
       agent {
         docker {
-          image 'python:3.7.0-stretch'
+          image 'qnib/pytest'
         }
       }
       steps {
