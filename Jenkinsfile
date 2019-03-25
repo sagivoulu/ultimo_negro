@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Tests') {
+    stage('UnitTests') {
+      agent {
+        docker {
+          image 'python:3.7'
+        }
+      }
       steps {
-        bat 'pytest --html=tests.html'
+        sh 'pytest ./tests/unit_tests--html=unit_tests.html'
       }
       post {
         always {
@@ -12,12 +17,17 @@ pipeline {
       }
     }
     stage('Build') {
+      agent {
+        docker {
+          image 'python:3.7'
+        }
+      }
       steps {
         bat 'pyinstaller --onefile ultimo_negro.py'
       }
       post {
         success  {
-          archiveArtifacts artifacts: 'dist/*.exe', fingerprint: true
+          archiveArtifacts artifacts: 'dist/*', fingerprint: true
         }
       }
     }
