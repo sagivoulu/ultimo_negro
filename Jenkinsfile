@@ -3,11 +3,11 @@ pipeline {
   stages {
     stage('UnitTests') {
       steps {
-        bat 'pytest ./tests/unit_tests--html=unit_tests.html'
+        bat 'pytest .\tests\unit_tests --html=unit_tests.html'
       }
       post {
         always {
-          archiveArtifacts artifacts: 'assets/*.css,*.html', fingerprint: true
+          archiveArtifacts artifacts: 'assets\*.css,*.html', fingerprint: true
         }
       }
     }
@@ -17,7 +17,7 @@ pipeline {
       }
       post {
         success  {
-          archiveArtifacts artifacts: 'dist/*', fingerprint: true
+          archiveArtifacts artifacts: 'dist\*', fingerprint: true
         }
       }
     }
