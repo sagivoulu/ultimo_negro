@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('HelloWorld') {
-      steps {
-        bat 'echo helloabcd'
-      }
-    }
     stage('UnitTests') {
       steps {
         bat 'pytest ./tests/unit_tests--html=unit_tests.html'
