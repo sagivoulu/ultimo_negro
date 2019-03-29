@@ -13,8 +13,13 @@ from redact_text import default_mapping as redaction_mapping
 # ]
 
 
-@pytest.fixture(scope='function', params=['log01.log'])
-def file_path(file_name):
+ultimo_negro_cmd = ultimo_negro.__file__
+
+
+@pytest.fixture(scope='function')
+def file_path():
+    file_name = 'log01.log'
+
     # Find the sample file
     project_dir = str(Path(ultimo_negro.__file__).parent)
     sample_file_path = path.join(project_dir, 'tests', 'sample_logs', file_name)
@@ -36,17 +41,17 @@ def file_path(file_name):
 
 
 def test_installation():
-    exit_code = os.system(f'ultimo_negro --help')
+    exit_code = os.system(f'{ultimo_negro_cmd} --help')
     if exit_code != 0:
         pytest.fail(f'ultimo_negro exited with code: {exit_code}')
 
 
 def test_redact_file(file_path):
-    exit_code = os.system(f'ultimo_negro --classified {file_path}')
+    exit_code = os.system(f'{ultimo_negro_cmd} --classified {file_path}')
     if exit_code != 0:
         pytest.fail(f'ultimo_negro exited with code: {exit_code}')
 
-    redacted_file_path = f'{file_path}_REDACTED'
+    redacted_file_path = f'{file_path}-REDACTED'
 
     if not path.isfile(redacted_file_path):
         pytest.fail(f'Did not find redacted file {redacted_file_path}')
