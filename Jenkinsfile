@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('UnitTests') {
       steps {
-        sh 'apt-get install python'
-        sh 'apt-get install python-pip'
+        sh 'apt-get install python -y'
+        sh 'apt-get install python-pip -y'
         sh 'pip install pipenv pyenv'
         sh 'pipenv install'
         sh 'pytest'
