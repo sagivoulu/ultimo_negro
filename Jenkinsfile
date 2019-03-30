@@ -1,10 +1,11 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('UnitTests') {
-      agent { dockerfile true }
       steps {
-        sh 'pip3 install -r requirements.txt'
+        sh 'apt-get install python'
+        sh 'pip install pipenv pyenv'
+        sh 'pipenv install'
         sh 'pytest'
       }
     }
