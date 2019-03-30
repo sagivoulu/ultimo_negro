@@ -6,6 +6,7 @@ pipeline {
         sh 'apt-get install python -y'
         sh 'apt-get install python-pip -y'
         sh 'pip install pipenv'
+        sh 'exec bash'
         sh 'pipenv install'
         sh 'pytest'
       }
